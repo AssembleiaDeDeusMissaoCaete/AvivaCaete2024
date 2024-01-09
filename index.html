@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>AVIVA Caeté 2024</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+    <div id="wrapper">
+        <div id="bg"></div>
+        <div id="overlay"></div>
+        <div id="main">
+            <!-- Header -->
+            <header id="header">
+                <h1>AVIVA CAETÉ 2024</h1>
+                <p id="confirmationText">Confirme &nbsp;&bull;&nbsp; sua &nbsp;&bull;&nbsp; presença</p>
+                <nav>
+                    <ul>
+                        <li><a href="https://www.facebook.com/profile.php?id=100088906485902" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                        <li><a href="https://www.instagram.com/avivacaeteofc/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://whatsapp.com/channel/0029Va8Rm6NKmCPZCNrd3K1w" class="icon brands fa-whatsapp"><span class="label">Instagram</span></a></li>
+						
+                    </ul>
+                </nav>
+
+                <button id="confirmButton" onclick="changeButtonText()">Confirmar Presença</button>
+
+            </header>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <span class="copyright">&copy; Assembléia de Deus - Missão Caeté.</span>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () { document.body.classList.remove('is-preload'); }
+        window.ontouchmove = function () { return false; }
+        window.onorientationchange = function () { document.body.scrollTop = 0; }
+
+        function changeButtonText() {
+            var confirmButton = document.getElementById('confirmButton');
+            confirmButton.innerHTML = 'Obrigado por confirmar';
+
+            // Simular efeito de escrita mais lenta no texto
+            var confirmationText = document.getElementById('confirmationText');
+            var originalText = confirmationText.innerText;
+            var newText = 'Obrigado por confirmar';
+
+            typeTextWithDelay(originalText, newText, confirmationText, 100);
+        }
+
+        function typeTextWithDelay(originalText, newText, element, delay) {
+            var i = 0;
+            var intervalId = setInterval(function () {
+                element.innerText = newText.substring(0, i + 1);
+                i++;
+                if (i === newText.length) {
+                    clearInterval(intervalId);
+                }
+            }, delay);
+        }
+    </script>
+</body>
+</html>
